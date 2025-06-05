@@ -1,0 +1,77 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* 스크롤바 방지 */
+    background-color: #0E0F0F;
+}
+
+.curtain-container {
+    position: relative;
+    width: 100%; /*뷰포트에 꽉 채우게게*/
+    height: 100vh;
+    overflow: hidden;
+    display: flex; /*자식 요소들을 가로로 정렬*/
+    justify-content: center; /*로고를 가로 중앙에 정렬*/
+    background-image: url('../../movit/css/image/curtain/back_curtain.png'); /* 뒷 배경 커튼 이미지 */
+    /*aligen-items: center; /*로고를 세로 중앙에 정렬*/
+    background-size: cover;
+    background-position: center;
+
+}
+
+
+.left-curtain, .right-curtain {
+    position: absolute;
+    width: 50%; /* 화면의 절반씩 차지 */
+    height: 100%;
+    z-index: 2; /* 로고보다 위에 있도록 설정 */
+    transition: transform 2s ease-in-out; /* 부드러운 애니메이션 효과 */
+}
+
+.left-curtain img, .right-curtain img {
+   overflow: hidden;
+    width: 50%;
+    height: 100%;
+    object-fit: cover; /* 이미지가 div 영역을 꽉 채우도록, 비율 유지 */
+    display: block; /* 이미지 하단의 기본 여백 제거 */
+}
+
+.left-curtain {
+   left: 0; /*왼쪽 가장자리리*/
+    transform: translateX(0); /* 초기에는 이동 없음 */
+}
+
+.right-curtain {
+   right:0; /*오른쪽 가장자리에 위치치*/
+    transform: translateX(0); /* 초기에는 이동없음음 */
+}
+
+
+.left-curtain.open {
+    transform: translateX(-100%); /* 왼쪽으로 완전히 이동 */
+}
+
+.right-curtain.open {
+    transform: translateX(100%); /* 오른쪽으로 완전히 이동 */
+}
+
+.logo {
+    position: absolute; /* 컨테이너 중앙에 로고를 위치시키기 위해 absolute 사용 */
+    z-index: 1; /* 커튼보다 아래에 위치하여 커튼이 열릴 때 나타남남 */
+    opacity: 0; /* 처음에는 투명하게 */
+    transition: opacity 1 ease-in 1.5s; /* 커튼이 열린 후 나타나도록 딜레이 및 페이드인 효과 */
+}
+
+.logo.img {
+    max-width: 80%;
+    max-height: 80vh;
+    object-fit: contain; /* 로고 이미지 비율 유지-> 중앙 정렬 */
+    display: block;
+    }
+
+/* 로고 나타남 클래스(js의해) */
+.logo .visible{
+    opacity: 1;
+}
