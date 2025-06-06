@@ -24,8 +24,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
                   // 즉, 커튼 애니메이션이 끝난 직후 로고 페이드인 애니메이션이 시작
 
     // 애니메이션 종료 후 다음 페이지로 이동
-    // 총 4초 후 홈 페이지로 이동 (커튼 애니메이션 2초 + 로고 표시 시간 등 고려)
+    // 총 5초 후 홈 페이지로 이동 (커튼 애니메이션 2초 + 로고 표시 시간 등 고려)
     setTimeout(() => {
-         window.location.href = '../.../movit/html/intro.html'; // 실제 홈 페이지 경로로 수정
-     }, 4000);
+         window.location.href = '../.../movit/html/home.html'; // 실제 홈 페이지 경로로 수정
+     }, 5000);
 });

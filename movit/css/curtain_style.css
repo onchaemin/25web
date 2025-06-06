@@ -1,10 +1,17 @@
-body, html {
+body {
+    background-image: url('../../movit/image/your_overall_background_image.png'); /* 전체 배경 이미지 경로 */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; /* 화면을 꽉 채우도록 */
+    background-position: center;
+    background-color: #0E0F0F; /* 이미지 없을 시 대비 */
+    overflow: hidden; /* 스크롤바 방지 */
+}
+html {
+    height: 100%;
+    width: 100%;
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden; /* 스크롤바 방지 */
-    background-color: #0E0F0F;
 }
 
 .curtain-container {
@@ -14,8 +21,7 @@ body, html {
     overflow: hidden;
     display: flex; /*자식 요소들을 가로로 정렬*/
     justify-content: center; /*로고를 가로 중앙에 정렬*/
-    background-image: url('../../movit/css/image/curtain/back_curtain.png'); /* 뒷 배경 커튼 이미지 */
-    /*aligen-items: center; /*로고를 세로 중앙에 정렬*/
+        /*aligen-items: center; /*로고를 세로 중앙에 정렬*/
     background-size: cover;
     background-position: center;
 
@@ -72,6 +78,6 @@ body, html {
     }
 
 /* 로고 나타남 클래스(js의해) */
-.logo .visible{
+.logo.visible{
     opacity: 1;
 }
