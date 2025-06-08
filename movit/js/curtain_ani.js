@@ -22,7 +22,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
     // home.html로 이동하는 경로 (intro.html에서 html 폴더를 벗어나 home.html로 진입)
-    const HOME_PAGE_URL = "home.html"; // intro.html과 home.html이 같은 html 폴더 안에 있다면 이렇게 사용
+    const HOME_PAGE_URL = "movit/html/home.html"; // intro.html과 home.html이 같은 html 폴더 안에 있다면 이렇게 사용
 
     // 만약 home.html이 movit 폴더 바로 아래에 있다면:
     // const HOME_PAGE_URL = "../../home.html"; // intro.html(movit/html) -> (movit) -> home.html
