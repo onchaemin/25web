@@ -1,18 +1,292 @@
-html {
+/* room_style.css */
+
+html, body {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
+    background-color: #0E0F0F;
     overflow: hidden; /* 스크롤바 방지 */
+    display: flex;
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    flex-direction: column; /* 자식 요소들을 세로로 정렬 */
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden; /* 스크롤바 방지 */
-    background-color: #0E0F0F;
+.video-container {
+    position: relative;
+    box-shadow: 0 0 80px red; /* 그림자 효과 유지 */
+    display: flex; /* 내부 video를 중앙 정렬할 필요가 있다면 */
+    justify-content: center;
+    align-items: center;
+}
+
+video {
+    width: 700px; /* 비디오 크기 조정 */
+    height: 400px; /* 비디오 크기 조정 */
+}
+
+.image-container img {
+    display: block;
+    margin: 20px auto 0; /* 위쪽 마진 유지, auto는 가로 중앙 정렬 */
+    width: 80%; /* 이미지 너비 */
+    max-width: 900px; /* 최대 너비 제한 (너무 커지지 않도록) */
+    height: auto;
+}
+
+/* ★★★ 사이드 컨트롤 (볼륨, 밝기) ★★★ */
+.side-controls {
+    position: fixed; /* 뷰포트에 고정 */
+    display: flex;
+    flex-direction: column; /* 내부 아이템들을 세로로 정렬 */
+    align-items: center; /* 가로 중앙 정렬 */
+    justify-content: center; /* 세로 중앙 정렬 */
+    gap: 15px; /* 컨트롤 요소 간 간격 */
+    z-index: 10;
+    padding: 15px 10px;
+    background-color: rgba(0, 0, 0, 0.6); /* 반투명 배경 */
+    border-radius: 10px;
+}
+
+.left-controls {
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%); /* 세로 중앙 정렬 */
+}
+
+.right-controls {
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%); /* 세로 중앙 정렬 */
+}
+
+.control-label {
+    font-size: 2em; /* 이모지 크기 */
+    color: #fff;
+    margin-bottom: 10px; /* 슬라이더와의 간격 */
+}
+
+.vertical-slider {
+    width: 10px; /* 슬라이더 너비 */
+    height: 200px; /* 슬라이더 높이 */
+    -webkit-appearance: slider-vertical; /* Chrome, Safari */
+    -moz-appearance: slider-vertical; /* Firefox */
+    appearance: slider-vertical; /* 표준 */
+    background: #555;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+    border-radius: 5px;
+}
+
+.vertical-slider:hover {
+    opacity: 1;
+}
+
+/* 슬라이더 썸(thumb) 스타일링 */
+.vertical-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px; /* 썸의 너비 */
+    height: 20px; /* 썸의 높이 */
+    border-radius: 50%; /* 원형 */
+    background: #711D19; /* 썸 색상 */
+    cursor: pointer;
+}
+
+.vertical-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #711D19;
+    cursor: pointer;
+}
+
+
+/* ★★★ 홈 버튼 스타일 ★★★ */
+.icon-button {
+    background-color: #333; /* 기본 색상 */
+    color: white; /* 아이콘 색상 */
+    border: none;
+    border-radius: 50%; /* 원형 */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em; /* Font Awesome 아이콘 크기 */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    position: fixed; /* 뷰포트에 고정 */
+    top: 20px; /* 상단에서 20px */
+    right: 20px; /* 오른쪽에서 20px */
+    z-index: 20; /* 다른 요소 위에 표시 */
+}
+
+.icon-button:hover {
+    background-color: #711D1D; /* 호버 시 색상 */
+    transform: scale(1.05); /* 약간 확대 */
+}
+
+
+.chat-area {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#chat {
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    padding: 0 15px;
+    font-size: 16px;
+    background-color: #222; /* 배경색 어둡게 */
+    color: white; /* 텍스트 색상 */
+    outline: none;
+}
+
+#mic {
+    margin-left: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+#mic:hover {
+    transform: scale(1.1);
+}
+
+/* ★★★ 모달 (팝업) 스타일 시작 ★★★ */
+
+.modal-content {
+    background-color: #222; /* 모달 박스 배경색 */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: white;
+    width: 300px;
+    max-width: 90%; /* 화면 크기에 따라 조절 */
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #eee;
+    font-size: 1.5em;
+}
+
+.stars {
+    margin-bottom: 25px;
+}
+
+.stars .fa-star {
+    font-size: 2.5em; /* 별 아이콘 크기 */
+    color: #555; /* 기본 별 색상 (채워지지 않은 별) */
+    cursor: pointer;
+    margin: 0 5px;
+    transition: color 0.2s ease, transform 0.1s ease;
+}
+
+.stars .fa-star:hover {
+    transform: scale(1.1);
+}
+
+.stars .fa-star.active {
+    color: #FFD700; /* 활성화된 별 색상 (금색) */
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.modal-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.save-btn {
+    background-color: #711D19; /* 저장 버튼 색상 */
+    color: white;
+}
+
+.save-btn:hover {
+    background-color: #922722;
+}
+
+.cancel-btn {
+    background-color: #555; /* 취소 버튼 색상 */
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: #777;
+}
+
+/* ★★★ 모달 (팝업) 스타일 끝 - 이 부분을 CSS 파일의 맨 마지막에 배치하세요! ★★★ */
+.modal-overlay {
+    display: none; /* !important 제거 */
+    position: fixed; /* 화면에 고정 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* 반투명 검은색 배경 */
+    /* display: flex;는 JS에서 동적으로 추가될 것이므로 여기서는 제거하거나 주석 처리 */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* 다른 모든 요소 위에 표시 */
+}
+
+/* 반응형 디자인 */
+@media (max-width: 992px) {
+    /* ... (기존 반응형 스타일 유지) ... */
+    .slider-item {
+        min-width: 200px; /* 모바일 아이템 너비 조정 */
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* ... (기존 반응형 스타일 유지) ... */
+    .slider-container {
+        flex-direction: column; /* 슬라이더와 버튼 세로 정렬 */
+        gap: 15px;
+        padding: 20px 10px;
+    }
+
+    .slider-btn {
+        width: 100%; /* 버튼 너비 꽉 채움 */
+        font-size: 1.5em;
+        padding: 10px;
+    }
+
+    .slider-track {
+        overflow-x: scroll; /* 모바일에서는 수동 스크롤도 가능하게 */
+    }
+}
+
+@media (max-width: 480px) {
+    /* ... (기존 반응형 스타일 유지) ... */
+    .slider-item {
+        min-width: 150px;
+        height: 250px;
+    }
 }

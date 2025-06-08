@@ -1,0 +1,343 @@
+/* 기본 스타일 */
+body {
+    background-color: #0E0E0F; /* 이미지와 유사한 어두운 배경 */
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+      overflow: none; /* 스크롤바 방지 */
+    min-height: 100vh; /* 최소 높이 설정 (푸터 하단 고정 고려) */
+    display: flex;
+    flex-direction: column; /* 자식 요소를 세로로 정렬 */
+}
+
+/* 헤더 영역 (로고 + 네비게이션) */
+.header-area {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* 다른 요소 위에 오도록 z-index 높게 설정 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* 그림자 추가 */
+    background-color: #0E0E0F; /* sticky 시 배경색 유지 */
+}
+
+/* SVG 로고 영역 */
+.header-area svg {
+    display: block; /* SVG 자체의 여백 제거 */
+}
+
+
+/* 네비게이션 바 */
+.main-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333; /* 이미지와 동일한 배경색 */
+    display: flex;
+    justify-content: space-around; /* 이미지처럼 균등 분배 */
+    align-items: center; /* 세로 중앙 정렬 */
+    width: 100%;
+    flex-shrink: 0;
+    height: 50px; /* 네비게이션 바 높이 고정 */
+}
+
+.main-nav li {
+    display: inline-block;
+}
+
+.main-nav li a, .main-nav .dropbtn {
+    display: block; /* 블록 요소로 변경하여 클릭 영역 확장 */
+    padding: 14px 25px; /* 패딩 조정 */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.1em; /* 폰트 크기 조정 */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.main-nav li a:hover, .main-nav .dropdown:hover .dropbtn, .main-nav li a.active {
+    background-color: #711D19; /* 이미지처럼 활성/호버 시 배경색 */
+    color: #ffffff;
+}
+
+.main-nav li a.active i { /* 홈 아이콘 색상 유지 */
+    color: #ffffff;
+}
+
+.main-nav li.dropdown {
+    position: relative;
+}
+
+.main-nav .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%; /* 드롭다운이 네비바 아래에 위치하도록 */
+    left: 50%; /* 가운데 정렬을 위한 초기 설정 */
+    transform: translateX(-50%); /* 가운데 정렬 */
+    border-radius: 4px;
+    overflow: hidden; /* 모서리 둥글게 */
+}
+
+.main-nav .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.main-nav .dropdown-content a:hover {
+    background-color: #ddd; /* 드롭다운 호버 색상 */
+}
+
+.main-nav .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* 영화 상세 정보 컨테이너 */
+.container {
+    flex: 1; /* 푸터를 하단에 고정하기 위해 남은 공간을 채움 */
+    display: flex;
+    align-items: flex-start; /* 자식 요소들을 위쪽으로 정렬 */
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+    gap: 50px; /* 이미지와 유사하게 간격 조정 */
+    flex-wrap: wrap; /* 화면이 좁아질 때 줄바꿈 */
+    justify-content: center; /* 가운데 정렬 */
+}
+
+/* 포스터 이미지 */
+.poster-img {
+    flex-shrink: 0;
+    width: 35%; /* 이미지에 맞게 너비 조정 */
+    height: auto;
+    max-width: 380px; /* 이미지 최대 너비 제한 */
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); /* 그림자 강화 */
+    object-fit: contain; /* 이미지 비율 유지 */
+}
+
+/* 영화 상세 정보 박스 */
+.movie-details {
+    flex-grow: 1;
+    min-width: 400px; /* 정보 박스 최소 너비 설정 */
+    background-color: #1A1A1C; /* 이미지와 유사한 배경색 */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    display: flex; /* flexbox 유지 (제목과 info-box 정렬) */
+    flex-direction: column;
+}
+
+.movie-details h1 {
+    color: #E0E0E0;
+    margin-top: 0;
+    font-size: 3.5em; /* 제목 크기 조정 */
+    margin-bottom: 25px; /* 제목 아래 간격 */
+    letter-spacing: -1px; /* 자간 조정 */
+}
+
+/* info-box (table 태그) 스타일 */
+.info-box {
+    width: 100%;
+    border-collapse: collapse; /* 셀 경계선 병합 */
+    /* 이미지에 보이는 외부 경계선 */
+    border-top: 1px solid #444;
+    border-left: 1px solid #444;
+}
+
+/* 테이블 헤더 (<th>) - 레이블 부분 */
+.info-box th {
+    background-color: #262626; /* 레이블 배경색 */
+    color: #BBBBBB;
+    font-weight: bold;
+    width: 120px; /* 이미지처럼 레이블 너비 고정 */
+    padding: 15px 10px; /* 패딩 조정 */
+    text-align: center; /* 레이블 텍스트 가운데 정렬 */
+    white-space: nowrap; /* 레이블 줄바꿈 방지 */
+    vertical-align: middle; /* 세로 중앙 정렬 */
+    border-right: 1px solid #444; /* 우측 경계선 */
+    border-bottom: 1px solid #444; /* 하단 경계선 */
+}
+
+/* 테이블 데이터 (<td>) - 값 부분 */
+.info-box td {
+    color: #CCCCCC;
+    line-height: 1.6;
+    padding: 15px 20px; /* 패딩 조정 */
+    text-align: left;
+    vertical-align: middle; /* 세로 중앙 정렬 */
+    border-right: 1px solid #444; /* 우측 경계선 */
+    border-bottom: 1px solid #444; /* 하단 경계선 */
+}
+
+.info-box td:last-child { /* 줄거리 부분의 줄바꿈 유지 */
+    white-space: pre-wrap;
+}
+
+/* 푸터 */
+.footer {
+    background-color: #1A1A1C;
+    color: #AAAAAA;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto; /* 컨테이너 아래로 자동 밀어냄 */
+    font-size: 0.9em;
+    border-top: 1px solid #333;
+    flex-shrink: 0; /* 줄어들지 않도록 설정 */
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+.footer b {
+    color: #FFFFFF;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 992px) {
+    .container {
+        flex-direction: column; /* 중간 화면에서 세로로 정렬 */
+        align-items: center;
+        gap: 30px;
+    }
+
+    .poster-img {
+        width: 50%;
+        max-width: 350px;
+    }
+
+    .movie-details {
+        min-width: unset; /* 최소 너비 해제 */
+        width: 90%; /* 화면에 맞게 너비 조정 */
+        padding: 25px;
+    }
+
+    .movie-details h1 {
+        font-size: 3em;
+        text-align: center;
+    }
+
+    .info-box th {
+        width: 100px; /* 레이블 너비 조정 */
+        padding: 12px 8px;
+    }
+
+    .info-box td {
+        padding: 12px 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-area svg text {
+        font-size: 45px; /* 로고 폰트 크기 조정 */
+        x: 30px;
+        y: 70px;
+    }
+
+    .profile-icon {
+        top: 30px;
+        right: 20px;
+        font-size: 30px;
+    }
+
+    .main-nav ul {
+        flex-wrap: wrap; /* 네비게이션 항목 줄바꿈 */
+        height: auto; /* 높이 자동 조절 */
+        padding-bottom: 10px; /* 줄바꿈 시 하단 패딩 */
+    }
+
+    .main-nav li a, .main-nav .dropbtn {
+        padding: 10px 15px; /* 패딩 줄임 */
+        font-size: 1em;
+    }
+
+    .container {
+        margin: 30px auto;
+        padding: 0 15px;
+    }
+
+    .poster-img {
+        width: 70%;
+        max-width: 280px;
+    }
+
+    .movie-details h1 {
+        font-size: 2.5em;
+        text-align: center;
+    }
+
+    /* 모바일에서는 테이블 레이아웃을 해제하고 flexbox로 다시 정렬 */
+    .info-box, .info-box tbody, .info-box tr, .info-box th, .info-box td {
+        display: block; /* 모든 테이블 관련 display 속성 해제 */
+        width: auto; /* 너비 자동 */
+        border: none; /* 경계선 제거 (아래 개별 항목에 적용) */
+    }
+
+    .info-box tr {
+        margin-bottom: 15px; /* 각 항목 사이 간격 */
+        padding: 10px 0; /* 패딩 */
+        border: 1px solid #444; /* 각 항목에 테두리 적용 */
+        border-radius: 5px; /* 모바일에서 더 보기 좋게 */
+        background-color: #262626; /* 모바일에서 각 항목 배경색 */
+        display: flex; /* 다시 flex 컨테이너로 */
+        flex-direction: column; /* 세로로 쌓이도록 */
+    }
+
+    .info-box tr:last-child {
+        margin-bottom: 0;
+    }
+
+    .info-box th, .info-box td {
+        padding: 5px 15px; /* 패딩 조정 */
+        text-align: left; /* 왼쪽 정렬 */
+        background-color: transparent; /* 배경색 투명하게 */
+    }
+
+    .info-box th {
+        font-size: 1.1em;
+        font-weight: bold;
+        color: #E0E0E0; /* 레이블 색상 강조 */
+        border-bottom: 1px dotted #555; /* 레이블 아래 점선 */
+        margin-bottom: 5px;
+    }
+
+    .info-box td {
+        font-size: 0.95em;
+        color: #CCCCCC;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-area svg text {
+        font-size: 35px;
+        x: 20px;
+        y: 60px;
+    }
+
+    .profile-icon {
+        top: 25px;
+        right: 15px;
+        font-size: 25px;
+    }
+
+    .main-nav ul {
+        padding: 5px 0;
+    }
+
+    .main-nav li a, .main-nav .dropbtn {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+
+    .movie-details h1 {
+        font-size: 2em;
+    }
+}

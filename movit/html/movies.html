@@ -1,100 +1,124 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<title>movies</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-}
-
-/* Style the header */
-.header {
-  background-color: #f1f1f1;
-  padding: 20px;
-  text-align: center;
-}
-
-/* Style the top navigation bar */
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-}
-
-/* Style the topnav links */
-.topnav a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-/* Change color on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-/* Create three equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 33.33%;
-  padding: 15px;
-}
-
-/* Clear floats after the columns */
-.row::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media screen and (max-width:600px) {
-  .column {
-    width: 100%;
-  }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../../movit/css/movies_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+    <svg height="120" width="100%">
+        <defs>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#711D19;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <rect fill="url(#grad1)" x="0" y="0" width="100%" height="120" />
+        <text fill="#cccccc" font-size="60" font-family="Verdana" x="50" y="80"> movit.</text>
+    </svg>
 
-<div class="header">
-  <h1>movit.</h1>
-  <p>Resize the browser window to see the responsive effect.</p>
+    <ul>
+        <li><a href="../../movit/html/movies.html">movies</a></li>
+        <li><a href="../../movit/html/rooms.html">rooms</a></li>
+        <li>
+            <a class="active" href="../../movit/html/home.html">
+                <i class="fa-solid fa-house" style="color: #ffffff;"></i>
+            </a>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropbtn">i-review</a>
+            <div class="dropdown-content">
+                <a href="../../movit/html/starGrading/s5.html">★★★★★</a>
+                <a href="../../movit/html/starGrading/s4.html">★★★★</a>
+                <a href="../../movit/html/starGrading/s3.html">★★★</a>
+                <a href="../../movit/html/starGrading/s2.html">★★</a>
+                <a href="../../movit/html/starGrading/s1.html">★</a>
+            </div>
+        </li>
+       <li><a href="../../movit/html/about.html">about</a></li>
+    </ul>
+
+    <div class="poster-wrapper">
+  <a href="../../movit/html/inf_movie/야당.html" class="poster">
+      <div class="poster-image">
+        <img src="../image/poster/야당포스터.png" alt="야당 포스터">
+        <div class="overlay"></div>
+      </div>
+      <h3>야당</h3>
+    </a>
+  <a href="../../movit/html/inf_movie/청설.html" class="poster">
+      <div class="poster-image">
+        <img src="../image/poster/청설포스터.png" alt="청설 포스터">
+        <div class="overlay"></div>
+      </div>
+      <h3>청설</h3>
+    </a>
+  <a href="../../movit/html/inf_movie/원더랜드.html" class="poster">
+      <div class="poster-image">
+        <img src="../image/poster/윈더랜드포스터.png" alt="원더랜드 포스터">
+        <div class="overlay"></div>
+      </div>
+      <h3>윈더랜드 </h3>
+    </a>
+   <a href="../../movit/html/inf_movie/예시.html" class="poster">
+      <div class="poster-image">
+        <img src="../image/poster/탈주포스터.png" alt="탈주 포스터">
+        <div class="overlay"></div>
+      </div>
+      <h3>탈주</h3>
+    </a>
+     <a href="../../movit/html/inf_movie/예시.html" class="poster">
+      <div class="poster-image">
+        <img src="../image/poster/극한직업포스터.png" alt="극한직업 포스터">
+        <div class="overlay"></div>
+      </div>
+      <h3>극한직업</h3>
+    </a>
+     <a href="../../movit/html/inf_movie/예시.html" class="poster">
+      <div class="poster-image">
+        <img src="../image/poster/기생충포스터.png" alt="기생충 포스터">
+        <div class="overlay"></div>
+      </div>
+      <h3>기생충</h3>
+    </a> <a href="../../movit/html/inf_movie/예시.html" class="poster">
+      <div class="poster-image">
+        <img src="../image/poster/서브스턴스포스터.png" alt="서브스턴스 포스터">
+        <div class="overlay"></div>
+      </div>
+      <h3>서브스턴스</h3>
+    </a>
+     <a href="../../movit/html/inf_movie/예시.html" class="poster">
+      <div class="poster-image">
+        <img src="../image/poster/명량포스터.png" alt="명량 포스터">
+        <div class="overlay"></div>
+      </div>
+      <h3>명량</h3>
+    </a>
+     <a href="../../movit/html/inf_movie/예시.html" class="poster">
+      <div class="poster-image">
+        <img src="../image/poster/콘클라베포스터.png" alt="콘클라베 포스터">
+        <div class="overlay"></div>
+      </div>
+      <h3>콘클라베</h3>
+    </a>
+     <a href="../../movit/html/inf_movie/예시.html" class="poster">
+      <div class="poster-image">
+        <img src="../image/poster/위키드포스터.png" alt="위키드 포스터">
+        <div class="overlay"></div>
+      </div>
+      <h3>위키드</h3>
+    </a>
 </div>
 
-<div class="topnav">
-  <a href="#">Link</a>
-  <a href="#">Link</a>
-  <a href="#">Link</a>
-</div>
 
-<div class="row">
-  <div class="column">
-    <h2>Column</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
-  </div>
-  
-  <div class="column">
-    <h2>Column</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
-  </div>
-  
-  <div class="column">
-    <h2>Column</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
-  </div>
-</div>
 
+    <div class="footer">
+        <p>고객문의 | 이용약관 | <b>개인정보처리방침</b> | 사업자정보 | 인재채용</p>
+        <p>© ALL RIGHT RESERVED</p>
+    </div>
+
+    <script src="../../movit/js/myjs.js"></script>
 </body>
 </html>
-
-

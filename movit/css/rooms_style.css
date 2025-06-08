@@ -1,0 +1,296 @@
+body {
+    background-color: #0E0E0F;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* overflow: none; 제거 - 스크롤 가능하게 */
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    background-color: #333;
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    /* ★★★ 변경: UL 안의 LI 항목들을 space-around로 정렬 ★★★ */
+    display: flex;
+    justify-content: space-around; /* 또는 space-between */
+    align-items: center; /* 세로 중앙 정렬 */
+    z-index: 10;
+    flex-shrink: 0;
+}
+
+li {
+    /* 기존 float: left; 제거, flexbox 사용으로 불필요 */
+    display: inline-block; /* flex item이지만 inline-block 속성 유지 */
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    padding: 14px 30px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: #711D19;
+}
+
+
+li.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* '같이 영화볼 친구 찾기' 고정 블록 */
+.sticky-find-friend-block {
+    position: sticky;
+    top: 1%; 
+    width: 100%;
+    background-color: #1A1A1C; /* 이미지와 유사한 배경색 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 999; /* 네비게이션 아래, 콘텐츠 위에 */
+    padding: 15px 0; /* 상하 패딩 */
+}
+
+/* 메인 콘텐츠 래퍼 */
+.main-content-wrapper {
+    flex: 1; /* 푸터가 하단에 고정되도록 남은 공간을 채움 */
+    padding: 40px 0; /* 상하 패딩 */
+}
+
+.room-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    background-color: #1A1A1C;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    padding-bottom: 30px; /* 테이블 하단 여백 */
+}
+
+.room-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+    border-bottom: 1px solid #444; /* 헤더와 테이블 구분선 */
+    margin-bottom: 20px;
+}
+
+.room-list-header h2 {
+    color: #E0E0E0;
+    margin: 0;
+    font-size: 2em;
+}
+
+.create-room-btn {
+    padding: 10px 20px;
+    background-color: #711D19;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.create-room-btn:hover {
+    background-color: #902621;
+}
+
+/* 방 목록 테이블 */
+.room-table {
+    width: 100%;
+    border-collapse: collapse; /* 셀 경계선 병합 */
+    text-align: left;
+}
+
+.room-table thead th {
+    background-color: #282828;
+    color: #BBBBBB;
+    padding: 15px 10px;
+    font-weight: bold;
+    border-bottom: 2px solid #444; /* 헤더 하단 경계선 */
+}
+
+.room-table tbody tr {
+    border-bottom: 1px solid #2F2F2F; /* 행 사이 경계선 */
+    transition: background-color 0.2s; /* 호버 애니메이션 */
+}
+
+.room-table tbody tr:hover {
+    background-color: #333; /* 호버 시 진한 회색 */
+}
+
+.room-table tbody td {
+    padding: 15px 10px;
+    color: #CCCCCC;
+    vertical-align: middle;
+}
+
+/* 상태 컬럼 색상 조정 (예시) */
+.room-table tbody td:last-child {
+    font-weight: bold;
+}
+
+.room-table tbody tr td:nth-child(5):contains("입장 가능") {
+    color: #4CAF50; /* 입장 가능 초록색 */
+}
+
+.room-table tbody tr td:nth-child(5):contains("입장 불가") {
+    color: #F44336; /* 입장 불가 빨간색 */
+}
+
+
+/* 푸터 */
+.footer {
+    background-color: #1A1A1C;
+    color: #AAAAAA;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    font-size: 0.9em;
+    border-top: 1px solid #333;
+    flex-shrink: 0;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+.footer b {
+    color: #FFFFFF;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 992px) {
+    .profile-icon {
+        top: 35px;
+        right: 30px;
+        font-size: 30px;
+    }
+
+    .find-friend-content {
+        flex-direction: column; /* 작은 화면에서 세로 정렬 */
+        align-items: stretch; /* 전체 너비 차지 */
+        gap: 15px;
+    }
+
+    .find-friend-content input[type="text"] {
+        max-width: none; /* 최대 너비 해제 */
+    }
+
+    .room-list-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding-bottom: 15px;
+    }
+
+    .room-list-header h2 {
+        font-size: 1.8em;
+    }
+
+    .room-table {
+        font-size: 0.9em; /* 폰트 크기 조정 */
+    }
+
+    .room-table thead {
+        display: none; /* 모바일에서 헤더 숨김 */
+    }
+
+    .room-table tbody tr {
+        display: block; /* 각 행을 블록 요소로 */
+        margin-bottom: 20px;
+        border: 1px solid #444;
+        border-radius: 8px;
+        padding: 15px;
+    }
+
+    .room-table tbody td {
+        display: block; /* 각 셀을 블록 요소로 */
+        padding: 8px 0;
+        border-bottom: 1px dotted #383838; /* 각 항목 아래 점선 */
+    }
+
+    .room-table tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+    .room-table tbody td:before { /* 모바일에서 레이블 추가 */
+        content: attr(data-label);
+        font-weight: bold;
+        color: #BBBBBB;
+        display: inline-block;
+        width: 80px; /* 레이블 너비 고정 */
+        margin-right: 10px;
+    }
+
+    /* 특정 컬럼에 data-label 추가 */
+    .room-table tbody tr td:nth-child(1):before { content: "방 제목"; }
+    .room-table tbody tr td:nth-child(2):before { content: "영화"; }
+    .room-table tbody tr td:nth-child(3):before { content: "장르"; }
+    .room-table tbody tr td:nth-child(4):before { content: "인원"; }
+    .room-table tbody tr td:nth-child(5):before { content: "상태"; }
+}
+
+@media (max-width: 768px) and (max-width: 480px) {
+    .header-area svg text {
+        font-size: 35px;
+        x: 20px;
+        y: 60px;
+    }
+
+    .profile-icon {
+        top: 25px;
+        right: 15px;
+        font-size: 25px;
+    }
+
+    .main-nav ul {
+        padding: 5px 0;
+    }
+
+    .main-nav li a, .main-nav .dropbtn {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+
+    .room-list-header h2 {
+        font-size: 1.5em;
+    }
+}
